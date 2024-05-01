@@ -30,14 +30,19 @@ const Local = () => {
               exceptional.
             </p>
           </div>
-          <img src="/local.jpeg" className="w-full h-full" alt="" />
+          <div className="rounded-full overflow-hidden">
+  <img src="/local.jpeg" className="w-full h-full" alt="" />
+</div>
+
+
         </div>
         <h2 className="text-center text-md md:text-4xl text-slate-500 my-16">
           Whether you seek lavish indulgence or spacious versatility, our
           versatile fleet ensures the ideal ride for every event.
         </h2>
-      </div>
-      <Subfooter />
+      </div    >
+      <div   style={{ marginTop: "100px" }}     > <Subfooter /></div>
+     
     </div>
   );
 };

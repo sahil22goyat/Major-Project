@@ -15,8 +15,8 @@ const Ourfleet = () => {
         <div className="relative">
           <Insights isForm={false} />
         </div>
-      </div>
-      <div style={{ marginTop: "50px" }}>
+      </div>style={{ marginTop: "50px" }}
+      <div >
         <Subfooter />
       </div>
     </div>
