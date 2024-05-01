@@ -14,10 +14,9 @@ const Ourfleet = () => {
         />
         <div className="relative">
           <Insights isForm={false} />
+          {/* Add margin top to position Subfooter below Insights */}
+          <Subfooter style={{ marginTop: "100px" }} />
         </div>
-      </div>style={{ marginTop: "50px" }}
-      <div >
-        <Subfooter />
       </div>
     </div>
   );

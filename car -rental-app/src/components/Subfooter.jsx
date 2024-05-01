@@ -3,13 +3,13 @@ import { IoMdContacts } from "react-icons/io";
 import { MdCardTravel } from "react-icons/md";
 import { IoCarSport } from "react-icons/io5";
 
-const Subfooter = () => {
+const UniqueSubfooterComponent = () => {
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 rounded-lg shadow-[0_2px_15px_-3px-rgba(0,0,0,0.07),0_10px_20px_-2px-rgba(0,0,0,0.04)] md:flex-row relative">
       <img
-        src="/lower-banner.jpg"
+        src="/subfooter.jpeg"
         alt=""
-        className="h-96 w-full object-cover md:h-[60vh] lg:h-[80vh]"
+        className="h-96 w-full object-cover md:h-[60vh] lg:h-[80vh] rounded-lg border-4 border-third-color"
       />
       <div className="flex flex-col justify-center gap-8 md:px-16 px-8 md:my-0 my-8">
         <div className="flex items-center gap-5">
@@ -17,10 +17,9 @@ const Subfooter = () => {
             <MdCardTravel className="text-third-color" />
           </span>
           <div className="flex flex-col gap-2">
-            <h5 className="text-2xl text-gray-900 font-bold">Wedding</h5>
+            <h5 className="text-2xl text-gray-900 font-bold">Unique Events</h5>
             <p className="mb-4 text-base text-gray-500 border-l-4 border-third-color pl-4">
-              Seeking Wedding Transportation Services? Contact Us to Customize
-              Your Special Day!
+              "Planning an unforgettable event? Elevate the experience with our tailored transportation services. Contact us to customize every detail for your special occasion!"
             </p>
           </div>
         </div>
@@ -29,9 +28,9 @@ const Subfooter = () => {
             <IoCarSport className="text-third-color" />
           </span>
           <div className="flex flex-col gap-2">
-            <h5 className="text-2xl text-gray-900 font-bold">Our fleet</h5>
+            <h5 className="text-2xl text-gray-900 font-bold">Our Car Fleet</h5>
             <p className="mb-4 text-base text-gray-500 border-l-4 border-third-color pl-4">
-              Discover the Perfect Ride for Any Event - What’s Your Selection?
+              "Explore our diverse fleet for the perfect ride for any occasion. What's your ideal choice?"
             </p>
           </div>
         </div>
@@ -40,10 +39,13 @@ const Subfooter = () => {
             <IoMdContacts className="text-third-color" />
           </span>
           <div className="flex flex-col gap-2">
-            <h5 className="text-2xl text-gray-900 font-bold">About Us</h5>
+            <h5 className="text-2xl text-gray-900 font-bold">Get in Touch</h5>
             <p className="mb-4 text-base text-gray-500 border-l-4 border-third-color pl-4">
-              Discover Unmatched Luxury Travel with Limolux in Melbourne’s
-              Finest Experience.
+              Contact us at:
+              <br />
+              Phone: 9466901628, 6005076996
+              <br />
+              Email: sahilgoyatssn@gmail.com, sartajmir@gmail.com
             </p>
           </div>
         </div>
@@ -52,4 +54,4 @@ const Subfooter = () => {
   );
 };
 
-export default Subfooter;
+export default UniqueSubfooterComponent;

@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { staggerContainer } from "@/contants/motion";
-import styles from "@/contants/styles";
+import { staggerContainer } from "@/contents/motion";
+import styles from "@/contents/styles";
 import TitleText from "./TitleText";
-import { insights } from "@/contants/appdata";
+import { insights } from "@/contents/appdata";
 import InsightCard from "./InsightCard";
 
 const Insights = ({ isForm, form }) => {

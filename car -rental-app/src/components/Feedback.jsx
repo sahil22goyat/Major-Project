@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer } from "@/contants/motion";
-import styles from "@/contants/styles";
+import { fadeIn, staggerContainer } from "@/contents/motion";
+import styles from "@/contents/styles";
 
 const Feedback = () => {
   return (

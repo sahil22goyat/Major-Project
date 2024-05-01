@@ -1,7 +1,7 @@
-import styles from "@/contants/styles";
+import styles from "@/contents/styles";
 import React from "react";
 import TitleText from "./TitleText";
-import { exploreWorlds } from "@/contants/appdata";
+import { cardhold } from "@/contents/appdata";
 import ExploreCard from "./ExploreCard";
 
 const Explore = () => {
@@ -11,13 +11,13 @@ const Explore = () => {
         <TitleText
           title={
             <span className="text-gray-900 font-extrabold">
-              Why Ride With Us?
+              why Only Car Pool?
             </span>
           }
         />
         <div className="my-9 flex lg:flex-row flex-col min-h-[50vh] gap-8 lg:mx-32">
-          {exploreWorlds?.map((world, index) => (
-            <ExploreCard key={index} world={world} />
+          {cardhold?.map((cardvalue, index) => (
+            <ExploreCard key={index} cardhold={cardvalue} />
           ))}
         </div>
       </div>
