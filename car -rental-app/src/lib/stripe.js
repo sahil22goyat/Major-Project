@@ -29,10 +29,15 @@ export const PaymentMethod = async (body) => {
       mode: "payment",
       success_url: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/success/${newOrder._id}`,
       cancel_url: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/cancel`,
-    });
-
-    if (session) return session.url;
+    });  
+   
+    if (session && session.url) {
+      return session.url;
+    } else {
+      throw new Error("Invalid session or session URL not found");
+    }
   } catch (error) {
-    console.log("something went wrong");
+    console.error("Error in PaymentMethod:", error);
+    throw error;
   }
-};
+}
