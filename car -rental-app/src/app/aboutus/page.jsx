@@ -1,4 +1,8 @@
+
+
 "use client";
+
+
 import Banners from "@/components/Banners";
 import Feedback from "@/components/Feedback";
 import Subfooter from "@/components/Subfooter";
@@ -9,12 +13,12 @@ const AboutUs = () => {
   return (
     <div>
       <Banners
-        img="/about-banner.jpg"
-        title="ABOUT US"
-        text="We are an all-new chauffeured car service driving Victoria"
+        img="/aboutpage.webp"
+        title={<span className="text-center text-white">About Us</span>}
+        text="Embark on a journey of luxury and convenience with our premier chauffeured car service, proudly serving Victoria with unparalleled elegance and reliability."
       />
       <TitleText
-        title={<span className="">About Us</span>}
+        title={<span className="">About Car Pool</span>}
         textStyles="mt-16"
       />
       <Feedback />

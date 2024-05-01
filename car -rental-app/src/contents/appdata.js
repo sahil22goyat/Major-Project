@@ -20,13 +20,14 @@ export const links = [
     link: "/services",
     text: "Services",
   },
+  
+    {
+      link: "/fleetpool",
+      text: "Fleet Pool",
+      keyword: true,
+    },
   {
-    link: "/our-fleet",
-    text: "Fleet-Pool",
-    keyword: true,
-  },
-  {
-    link: "/about-us",
+    link: "/aboutus",
     text: "About Us",
   },
 ];

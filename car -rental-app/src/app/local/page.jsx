@@ -6,43 +6,39 @@ const Local = () => {
   return (
     <div>
       <Banners
-        img="/local-banner.jpg"
-        title="Local Transfers"
-        text="Add to the memories on your big day with Code scrapper"
+        img="/localpage.jpeg"
+        title={<span className="text-white">Event Bookings</span>}
+        text={<span className="text-white">Enhance the memories of your big day with Car Pool, 
+        offering unparalleled chauffeured services tailored to your special occasion. Experience luxury and comfort like never before.</span>}
       />
+
       <div className="max-w-[1150px] mx-4 lg:mx-auto my-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="text-third-color text-4xl font-bold mb-10">
-              Local Car Services
+            <h1 className="text-blue text-4xl font-bold mb-10">
+              Local Car, Cab, Taxi, Scooter Services
             </h1>
-            <p className="leading-6 text-lg text-slate-400">
-              At Limolux, we comprehend the meaning of a vehicle administration
-              for your big day. <br />
+            <p className="leading-7 text-lg text-blue font-medium">
+              "At Carpool, we understand the significance of transportation on your special day."<br />
               <br />
-              Our wedding vehicles are carefully ready for an immaculate
-              appearance, and we{"'"}ll design your course to guarantee
-              dependability. We understand the importance of the finer details,
-              so feel free to enlighten us if you desire any extras, such as
-              enhancements, to elevate your journey{"'"}s delight. <br />
+              "Our meticulously groomed wedding vehicles are meticulously
+               prepared to ensure a flawless presentation, while our meticulous
+                planning ensures unwavering reliability. We recognize the significance
+                 of every detail, so don't hesitate to share any additional desires or 
+                 enhancements you may wish for to enhance your journey's joy and splendor." <br />
               <br />
-              Customize your experience with us and make every ride truly
-              exceptional.
+              "Tailor your journey with us and transform every ride into an extraordinary experience."
             </p>
           </div>
           <div className="rounded-full overflow-hidden">
-  <img src="/local.jpeg" className="w-full h-full" alt="" />
-</div>
-
-
+            <img src="/localpicture.jpeg" className="w-full h-full" alt="" />
+          </div>
         </div>
-        <h2 className="text-center text-md md:text-4xl text-slate-500 my-16">
-          Whether you seek lavish indulgence or spacious versatility, our
-          versatile fleet ensures the ideal ride for every event.
+        <h2 className="text-center text-md md:text-4xl text-red my-16">
+          "Whether you crave luxurious indulgence or practical versatility, our diverse fleet guarantees the perfect ride for any occasion."
         </h2>
-      </div    >
-      <div   style={{ marginTop: "100px" }}     > <Subfooter /></div>
-     
+      </div>
+      <div style={{ marginTop: "100px" }}><Subfooter /></div>
     </div>
   );
 };
