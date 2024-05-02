@@ -5,14 +5,14 @@ import { IoCarSport } from "react-icons/io5";
 
 const UniqueSubfooterComponent = () => {
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 rounded-lg shadow-[0_2px_15px_-3px-rgba(0,0,0,0.07),0_10px_20px_-2px-rgba(0,0,0,0.04)] md:flex-row relative">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 rounded-lg shadow-[0_2px_15px_-3px-rgba(0,0,0,0.07),0_10px_20px_-2px-rgba(0,0,0,0.04)] md:flex-row relative overflow-hidden">
       <img
         src="/subfooter.jpeg"
         alt=""
-        className="h-96 w-full object-cover md:h-[60vh] lg:h-[80vh] rounded-lg border-4 border-third-color"
+        className="h-96 w-full object-cover md:h-[60vh] lg:h-[80vh] rounded-lg border-4 border-third-color transition-transform duration-300 transform hover:scale-105"
       />
       <div className="flex flex-col justify-center gap-8 md:px-16 px-8 md:my-0 my-8">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 transition-transform duration-300 transform hover:scale-105">
           <span className="shadow-xl text-2xl p-6 rounded-full">
             <MdCardTravel className="text-third-color" />
           </span>
@@ -23,7 +23,7 @@ const UniqueSubfooterComponent = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 transition-transform duration-300 transform hover:scale-105">
           <span className="shadow-xl text-2xl p-6 rounded-full">
             <IoCarSport className="text-third-color" />
           </span>
@@ -34,7 +34,7 @@ const UniqueSubfooterComponent = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 transition-transform duration-300 transform hover:scale-105">
           <span className="shadow-xl text-2xl p-6 rounded-full">
             <IoMdContacts className="text-third-color" />
           </span>

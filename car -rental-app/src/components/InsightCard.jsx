@@ -12,14 +12,15 @@ const InsightCard = ({ imgUrl, title, subtitle, index, isForm, form }) => {
       variants={fadeIn("up", "string", index * 0.5, 1)}
       className="flex justify-center md:flex-row flex-col gap-4"
     >
-      <img
+      <motion.img
+        whileHover={{ scale: 1.1 }} // Zoom effect on hover
         src={imgUrl}
         className="md:w-[350px] w-full h-[250px] rounded-[32px] object-cover"
         alt=""
       />
       <div>
         <div className="flex justify-between">
-          <h4 className="font-extrabold text-slate-500 lg:text-[42px] text-[26px]">
+          <h4 className="font-extrabold text-slate-700 lg:text-[42px] text-[26px]">
             {title}
           </h4>
           {isForm && (
@@ -41,7 +42,7 @@ const InsightCard = ({ imgUrl, title, subtitle, index, isForm, form }) => {
             </button>
           )}
         </div>
-        <p className="mt-4 font-normal lg:text-lg text-sm text-slate-400">
+        <p className="mt-4 font-medium lg:text-lg text-sm text-slate-600">
           {subtitle}
         </p>
       </div>

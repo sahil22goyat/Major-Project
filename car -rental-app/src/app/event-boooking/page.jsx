@@ -30,8 +30,12 @@ const Local = () => {
               "Tailor your journey with us and transform every ride into an extraordinary experience."
             </p>
           </div>
-          <div className="rounded-full overflow-hidden">
-            <img src="/localpicture.jpeg" className="w-full h-full" alt="" />
+          <div className="rounded-full overflow-hidden relative">
+            <img 
+              src="/localpicture.jpeg" 
+              className="w-full h-full transform transition-transform duration-300 hover:scale-110"
+              alt="" 
+            />
           </div>
         </div>
         <h2 className="text-third-color text-4xl font-bold mb-10">

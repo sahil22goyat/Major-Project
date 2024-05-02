@@ -160,34 +160,34 @@ export const serviceList = [
 
 export const insights = [
   {
-    imgUrl: "/car-1.jpg",
-    title: "Luxury Sedan",
+    imgUrl: "/insight1.png",
+    title: "opulence  collection",
     subtitle:
-      "Experience the encapsulation of luxury with Limolux's astonishing decision of premium vehicles. Whether you pick a Mercedes-Benz E-Class, BMW 5 Series, Lexus ES300, or a similar upscale model, our extent of lavishness vehicles is planned to lift every occasion. Lower yourself in the predictable blend of cutting edge development, unequaled comfort, and unparalleled sensibility all at a sensible expense. Find the allure of refinement as you set out on your cycle in style with Limolux.",
+      "Indulge in the epitome of opulence with Car Pool's remarkable selection of premium Indian vehicles. Whether you opt for a luxurious Tata Hexa, Mahindra XUV700, Toyota Innova Crysta, or a similar upscale model, our range of luxury cars is designed to elevate every occasion. Immerse yourself in the seamless fusion of cutting-edge technology, unmatched comfort, and unparalleled affordability, all at a reasonable price. Discover the allure of sophistication as you embark on your journey in style with Car Pool..",
   },
   {
-    imgUrl: "/premium-sedan.jpg",
-    title: "Premium Sedan",
+    imgUrl: "/insight2.jpg",
+    title: "Maruti Suzuki Dzire",
     subtitle:
-      "Limolux presents a handpicked determination of the best extravagance vehicles for the individuals who request only awesome. Look over the lofty BMW 7 Series, the notorious Mercedes-Benz S-Class, the modern Audi A8, or practically identical tip top models. Our vehicles are not simply include pressed; they address the zenith of current extravagance cars. With Limolux, you'll make a stupendous entry, blowing some people's minds and delighting in outright style and solace. Lift your appearance and have an enduring effect with our impeccable fleet of luxury automobiles.",
+      "Car Pool presents a curated selection of the finest  vehicles for those who demand nothing but the best. Choose from the prestigious Maruti Suzuki Desire, the iconic Honda City, the sleek Hyundai Verna, or comparable elite models. Our vehicles are not just feature-packed; they represent the pinnacle of modern cars. With Car Pool, you'll make a grand entrance, turning heads and reveling in absolute style and comfort. Elevate your presence and leave a lasting impression with our impeccable fleet of luxury automobiles..",
   },
   {
-    imgUrl: "/car-3.jpg",
-    title: "Luxury SUV",
+    imgUrl: "/insight3.jpeg",
+    title: "Taxi/Cab",
     subtitle:
-      "Limolux offers an answer for those looking for both more than adequate baggage limit and positive extravagance. Investigate our determination of premium SUVs, including the Mercedes-Benz GLE, BMW X5, and comparable upscale models. These extravagance SUVs give similar remarkable elements tracked down in our extravagance cars while offering additional room for your possessions. Express farewell to splits the difference and raise your movement experience with Limolux's sumptuous SUVs, where style and capacity flawlessly coincide.",
+      "Car Pool provides a solution for those seeking ample luggage capacity without compromising on comfort and style. Explore our selection of premium taxi cabs, including the Maruti Suzuki Ertiga, Hyundai Creta, and similar upscale models. These taxis offer the same exceptional features found in our luxury cars while providing extra space for your belongings. Say goodbye to compromises and elevate your travel experience with Car Pool's premium taxi cabs, where style and functionality seamlessly intersect.",
   },
   {
-    imgUrl: "/car-4.jpg",
+    imgUrl: "/insight4.jpeg",
     title: "Van",
     subtitle:
-      "Find the Mercedes-Benz V-Class, a top decision for obliging 5-6 travelers easily with more than adequate baggage space. This open extravagance individual’s mover flaunts enormous back seats and a liberal boot, guaranteeing a smooth and spacious excursion. Prestigious overall for its flexibility, the Mercedes V-Class sets the norm for moving travelers in style and refinement. Raise your gathering travel insight with this remarkable vehicle from Limolux.",
+      "Explore our van collection, featuring the Mahindra Marazzo, a premier choice for accommodating 5-6 passengers comfortably with ample luggage space. This spacious van boasts large rear seats and a generous boot, ensuring a smooth and roomy journey. Renowned for its versatility, the Mahindra Marazzo sets the benchmark for transporting passengers in style and comfort. Enhance your group travel experience with this exceptional vehicle from Car Pool.",
   },
   {
-    imgUrl: "/car-5.jpg",
-    title: "Transporter",
+    imgUrl: "/insight5.jpg",
+    title: "8 Seater Toyota Innova Crysta",
     subtitle:
-      "Limolux gladly presents the Mercedes-Benz Runner and Renault Masterbus, ideal for obliging bigger gatherings of up to eleven individuals. These lofty vehicles are the favored decision for leaders, as well as those looking for consistent transportation for air terminal exchanges, weddings, and corporate occasions. Raise your gathering travel insight with Limolux, where extravagance, solace, and style combine. For requests, if it's not too much trouble, connect with us today. Your excursion with us starts with a straightforward call.",
+      "Car Pool proudly presents the Toyota Innova Crysta, a spacious 8-seater ideal for accommodating larger groups of up to eight people. This prestigious vehicle is the preferred choice for executives, as well as those seeking seamless transportation for airport transfers, weddings, and corporate events. Elevate your group travel experience with Car Pool, where comfort, style, and reliability come together. For inquiries, please reach out to us today. Your journey with us begins with a simple call.",
   },
 ];
 

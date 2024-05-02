@@ -11,13 +11,13 @@ const CustomComponent = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
-        className={`${styles.innerWidth} mx-auto flex flex-col gap-6`}
+        className={`${styles.innerWidth} mx-auto flex flex-col gap-6 rounded-lg`}
         style={{ backgroundColor: "rgba(0, 0, 0, 0.8)" }} // Background color set to gray with 80% opacity
       >
         <motion.div variants={fadeIn("right", "tween", 0.2, 1)}>
-          <div className="" />
+          <div className="rounded" />
           <div>
-            <h4 className="font-bold text-white sm:text-5xl text-[26px] border-5 border-l-third-color mb-3 text-center">
+            <h4 className="font-bold text-white rounded sm:text-5xl text-[26px] border-5 border-l-third-color mb-3 text-center">
             why to choose us? 
             </h4>
             <p className="mt-2.5 sm:mt-5 text-white font-bold underline sm:text-lg text-md leading-6 text-slate-400 text-center">

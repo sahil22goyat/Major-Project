@@ -1,15 +1,15 @@
 import Banners from "@/components/Banners";
 import Insights from "@/components/Insights";
-import Footer from "@/components/Subfooter"; // corrected import name
+import Footer from "@/components/Subfooter"; // Corrected import name
 import React from "react";
 
-const Ourfleet = () => {
+const OurFleet = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col min-h-screen">
       <div className="flex-grow">
         <Banners
           img="/fleetpool.jpeg"
-          title={<h1 className="text-center md-0 text-grey mg-16">Pool Fleet</h1>}
+          title={<h1 className="text-center text-grey">Pool Fleet</h1>} // Removed unnecessary margin classes
           text="Whether you’re after pure luxury or a high capacity transporter, we have a vehicle for any occasion. What will you choose?"
         />
         <div className="relative">
@@ -21,4 +21,4 @@ const Ourfleet = () => {
   );
 };
 
-export default Ourfleet;
+export default OurFleet;
