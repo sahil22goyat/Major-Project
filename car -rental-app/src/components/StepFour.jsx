@@ -42,17 +42,19 @@ const StepFour = ({ form }) => {
     const url = await PaymentMethod({ ...form.getValues(), price });
     router.push(url);
   };
+
   return (
     <div className="max-w-[1150px] mx-auto">
-      <div className="grid grid-cols-1 p-4 mt-10">
-        <div className="relative w-full mb-4 rounded overflow-hidden">
+      <div className="grid grid-cols-1 p-4 mt-10 bg-white rounded-lg shadow-lg">
+      <div className="relative w-full mb-4 rounded overflow-hidden">
           <img src={imgUrl} className="object-cover" alt="" />
         </div>
+
         <div className="pt-8">
           <div className="flex justify-between items-center border-b mb-5 pb-5">
             <h3 className="text-3xl font-bold ">{title}</h3>
             <p className="text-lg font-bold">
-              Price: <span className="text-2xl">${price}</span>
+              Price: <span className="text-2xl text-third-color">${price}</span>
             </p>
           </div>
           <h3 className="text-2xl font-bold mb-5">Order Information</h3>
@@ -80,7 +82,7 @@ const StepFour = ({ form }) => {
           </div>
 
           <button
-            className="bg-third-color text-white font-bold w-full py-2.5 px-4 rounded-md"
+            className="bg-third-color text-white font-bold w-full py-2.5 px-4 rounded-md hover:bg-opacity-90 focus:outline-none"
             onClick={Submit}
           >
             Pay Now

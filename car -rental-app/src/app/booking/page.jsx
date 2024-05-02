@@ -57,7 +57,16 @@ const Booking = ({ searchParams }) => {
           current == 4 ? "hidden" : "flex"
         } justify-between items-center px-[10%] py-3`}
       >
-        <button className="bg-slate-100 px-10 py-3 rounded-full">Back</button>
+       <button 
+  className="bg-slate-100 px-10 py-3 rounded-full" 
+  onClick={() => {
+    const previousStepIndex = Math.max(1, current - 1); // Ensure the step index doesn't go below 1
+    window.location.href = `/booking?index=${previousStepIndex}`;
+  }}
+>
+  Back
+</button>
+
         <Link
           href={`/booking?index=${current + 1}`}
           className="bg-third-color text-white px-10 py-3 rounded-full"
@@ -70,3 +79,4 @@ const Booking = ({ searchParams }) => {
 };
 
 export default Booking;
+

@@ -12,7 +12,7 @@ import { Label } from "./ui/label";
 const SelectForm = ({ control, id, label, placeholder, list }) => {
   return (
     <div>
-      <Label htmlFor={id} className="font-semibold text-md">
+      <Label htmlFor={id} className="text-white font-semibold text-md">
         {label}
       </Label>
       <FormField

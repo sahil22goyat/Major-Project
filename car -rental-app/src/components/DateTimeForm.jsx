@@ -19,15 +19,15 @@ import { Calendar } from "./ui/calendar";
 const DateTimeForm = ({ control, id, label }) => {
   return (
     <div>
-      <Label htmlFor={id} className="font-semibold text-md">
+      <Label htmlFor={id} className="text-white font-semibold text-md">
         {label}
       </Label>
       <FormField
         control={control}
         name={id}
         render={({ field }) => (
-          <FormItem className="flex flex-col py-3">
-            <FormLabel>Date of birth</FormLabel>
+          <FormItem className=" flex flex-col py-3">
+            <FormLabel>Date of Booking</FormLabel>
             <Popover>
               <PopoverTrigger asChild>
                 <FormControl>
@@ -38,6 +38,7 @@ const DateTimeForm = ({ control, id, label }) => {
                       !field.value && "text-muted-foreground"
                     )}
                   >
+                    
                     {field.value ? (
                       format(field.value, "PPP")
                     ) : (
