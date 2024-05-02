@@ -7,6 +7,7 @@ import TitleText from "./TitleText";
 import { insights } from "@/contents/appdata";
 import InsightCard from "./InsightCard";
 
+
 const Insights = ({ isForm, form }) => {
   return (
     <motion.div
@@ -16,7 +17,8 @@ const Insights = ({ isForm, form }) => {
       viewport={{ once: false, amount: 0.25 }}
       className={`${styles.innerWidth} mx-auto flex flex-col`}
     >
-      {!isForm && <TitleText title={<>Our Fleet</>} />}
+      {!isForm && <TitleText style={{ fontFamily: 'Brush Script MT', fontSize: '4rem', color: 'grey' }} title={<>Car Pool Fleet</>} />}
+
 
       <div className="mt-12 flex flex-col gap-9">
         {insights?.map((insight, index) => (
@@ -27,7 +29,12 @@ const Insights = ({ isForm, form }) => {
             isForm={isForm}
             form={form}
           />
-        ))}
+      
+    
+      
+      
+      ))}
+       
       </div>
     </motion.div>
   );

@@ -7,11 +7,12 @@ import React from "react";
 const Services = () => {
   return (
     <div>
-      <Banners
-        img="/service-banner.jpg"
-        title="Services"
-        text="Experience elevated travel with Code scrapper: Where style, comfort, and safety meet for every occasion. Travel in sophistication and peace of mind."
-      />
+    <Banners
+  img="/offerings.jpeg"
+  title={<span className="text-white font-bold opacity-0.1">Services</span>}
+  text={<span className="text-white font-bold opacity-0.1">Experience elevated travel with Code scrapper: Where style, comfort, and safety meet for every occasion. Travel in sophistication and peace of mind.</span>}
+/>
+
       <div className="mb-5">
         {serviceList?.map((service, index) => (
           <div key={index}>

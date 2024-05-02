@@ -15,7 +15,7 @@ const Local = () => {
       <div className="max-w-[1150px] mx-4 lg:mx-auto my-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="text-blue text-4xl font-bold mb-10">
+            <h1 className="text-third-color text-4xl font-bold mb-10">
               Local Car, Cab, Taxi, Scooter Services
             </h1>
             <p className="leading-7 text-lg text-blue font-medium">
@@ -34,8 +34,8 @@ const Local = () => {
             <img src="/localpicture.jpeg" className="w-full h-full" alt="" />
           </div>
         </div>
-        <h2 className="text-center text-md md:text-4xl text-red my-16">
-          "Whether you crave luxurious indulgence or practical versatility, our diverse fleet guarantees the perfect ride for any occasion."
+        <h2 className="text-third-color text-4xl font-bold mb-10">
+          <br></br>"Whether you crave luxurious indulgence or practical versatility, our diverse fleet guarantees the perfect ride for any occasion."
         </h2>
       </div>
       <div style={{ marginTop: "100px" }}><Subfooter /></div>

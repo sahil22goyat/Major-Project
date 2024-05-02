@@ -15,19 +15,20 @@ const Service = ({ service }) => {
         viewport={{ once: false, amount: 0.25 }}
         className={`${styles.innerWidth} grid grid-cols-1 mt-10 mx-auto gap-5`}
       >
-        <TitleText title={service.title} />
+        <TitleText title={<span style={{ fontFamily: 'Brush Script MT', fontSize: '4rem' }}>{service.title}</span>}/>
         <motion.div
           variants={service.variant1}
           className="flex justify-center items-center flex-col"
         >
-          <p className="font-normal text-sm lg:text-lg text-slate-400 text-center leading-6 w-full max-w-7xl mb-5">
-            {service.text}
-          </p>
+          <p style={{ fontFamily: 'guard scrpit', fontWeight: 'bold', color: 'black' }} className="lg:text-lg  text-black text-center leading-6 w-full max-w-7xl mb-5">
+  {service.text}
+</p>
+
           <div className="w-11/12 lg:w-10/12">
             <img
               src={service.img}
-              className="w-full h-full object-contain"
-              alt=""
+              className="w-full h-full object-contain rounded"
+              alt="loading"
             />
           </div>
         </motion.div>
