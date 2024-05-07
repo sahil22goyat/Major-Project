@@ -1,1 +1,3 @@
 hi
+npm install --force
+yarn run dev
