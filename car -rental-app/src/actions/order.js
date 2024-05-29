@@ -11,15 +11,15 @@ export const orderedMail = async (id) => {
     await sendEmail({
       order: getOrder,
       email: getOrder.email,
-      subject: "welcome to code scrapper",
-      message: `hi there, you have booking`,
+      subject: "welcome to car pool",
+      message: `hey there, you have a booking from car pool`,
     });
 
     await sendEmail({
       order: getOrder,
-      email: "codescrapper1@gmail.com",
-      subject: "welcome to code scrapper",
-      message: `hi there, you have booking`,
+      email: "sahilgoyatssn@gmail.com",
+      subject: "welcome to car pool",
+      message: `hey there, you have booking from car pool`,
     });
     return getOrder;
   } catch (error) {}

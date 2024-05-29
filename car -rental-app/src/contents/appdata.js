@@ -25,12 +25,28 @@ export const links = [
       link: "/fleetpool",
       text: "Fleet Pool",
       keyword: true,
+ 
+    },
+
+    {
+      link: "/Purchase",
+      text: "Purchase",
+     
     },
   {
     link: "/aboutus",
     text: "About Us",
   },
+  
+  
 ];
+
+
+
+
+
+
+
 
 // carousel array
 export const profile = [
