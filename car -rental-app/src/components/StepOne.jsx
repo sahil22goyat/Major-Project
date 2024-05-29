@@ -9,7 +9,7 @@ import CitySelect from "./CitySelect";
 import dynamic from "next/dynamic";
 
 const StepOne = ({ form }) => {
-  const getCities = City?.getCitiesOfState("PK", "PB");
+  const getCities = City?.getCitiesOfState("IN", "HR");
   const [getSource, setSource] = useState(null);
   const [getDestination, setDestination] = useState(null);
 
