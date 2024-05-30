@@ -6,15 +6,24 @@ const parts = [
   { id: 2, name: "black rubber gasket", image: "/part2.jpg" },
   { id: 3, name: "catalytic converter", image: "/part3.jpg" },
   { id: 4, name: "headlights", image: "/part4.jpg" },
-  // Add more parts as needed
+  { id: 5, name: "bonet", image: "/part5.jpg" },
+  { id: 6, name: "engine cover", image: "/part6.jpg" },
+  { id: 7, name: "car dustbin", image: "/part7.jpg" },
+  { id: 8, name: "gear box cover", image: "/part8.jpg" },
 ];
+
 const PurchaseSection = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+  const [showAllParts, setShowAllParts] = useState(false);
 
   const handleAddToCart = (part) => {
-    alert(`${part.name} added to cart successfully!`);
+    if (!loggedIn) {
+      alert("Please log in first!");
+    } else {
+      alert(`${part.name} added to cart successfully!`);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -24,16 +33,20 @@ const PurchaseSection = () => {
   };
 
   const handleViewMore = () => {
+    setShowAllParts(true);
     alert("Please wait while we are loading...");
   };
 
   return (
-    <div className="container mx-auto p-5">
+    <div
+      className="min-h-screen bg-cover bg-center flex flex-col items-center p-5"
+      style={{ backgroundImage: "url('/purchaseback.png')" }}
+    >
       {/* Login Form */}
       <div className="flex justify-center items-center min-h-screen">
         <form
           onSubmit={handleSubmit}
-          className="bg-gray-100 p-5 rounded-lg shadow-md mb-10 relative"
+          className="bg-gray-100 bg-opacity-80 p-5 rounded-lg shadow-md mb-10 relative"
           style={{ width: "500px", height: "500px" }}
         >
           <h2 className="text-2xl font-bold mb-5 text-center">{loggedIn ? "Logged In" : "Login"}</h2>
@@ -68,7 +81,7 @@ const PurchaseSection = () => {
             <div className="absolute inset-0 flex flex-col justify-center items-center">
               <p className="text-green-500">You are logged in as {username}</p>
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVgFjrG_0zAzNLWLo6OULuFynY2haCp9RgrQ&s"
+                src="https://t4.ftcdn.net/jpg/01/36/70/67/240_F_136706734_KWhNBhLvY5XTlZVocpxFQK1FfKNOYbMj.jpg"
                 alt="Smile"
                 className="mt-4"
                 style={{ width: "200px", height: "200px" }}
@@ -80,7 +93,7 @@ const PurchaseSection = () => {
 
       {/* Parts for Purchase */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {parts.map((part) => (
+        {parts.slice(0, showAllParts ? parts.length : 4).map((part) => (
           <div key={part.id} className="bg-white shadow-md rounded-lg overflow-hidden relative">
             <img
               src={part.image}
