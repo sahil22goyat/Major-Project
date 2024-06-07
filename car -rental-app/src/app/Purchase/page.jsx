@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 
 const parts = [
@@ -17,11 +17,13 @@ const PurchaseSection = () => {
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [showAllParts, setShowAllParts] = useState(false);
+  const [addedParts, setAddedParts] = useState({});
 
   const handleAddToCart = (part) => {
     if (!loggedIn) {
       alert("Please log in first!");
     } else {
+      setAddedParts((prev) => ({ ...prev, [part.id]: true }));
       alert(`${part.name} added to cart successfully!`);
     }
   };
@@ -104,9 +106,10 @@ const PurchaseSection = () => {
               <h3 className="font-bold text-lg">{part.name}</h3>
               <button
                 onClick={() => handleAddToCart(part)}
-                className="mt-2 w-full bg-green-500 text-white p-2 rounded-lg"
+                className={`mt-2 w-full ${addedParts[part.id] ? "bg-gray-500" : "bg-green-500"} text-white p-2 rounded-lg`}
+                disabled={addedParts[part.id]}
               >
-                Add to Cart
+                {addedParts[part.id] ? "Added" : "Add to Cart"}
               </button>
             </div>
           </div>
