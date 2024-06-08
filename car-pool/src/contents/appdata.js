@@ -158,9 +158,9 @@ export const serviceList = [
   },
   {
     id: 6,
-    text: "Explore India's Majestic Peaks and Trails with Carpool: Discover the Splendor of India's Mountain Hikes with Carpool - A Journey of Adventure and Exploration. Experience the Beauty of India's Mountain Trails with Carpool: Unparalleled Comfort and Safety. Venture into the Wilderness: Navigate India's Mountain Trails in Luxury with Carpool. Escape to the Indian Peaks with Carpool: A Journey of Discovery and Excitement through Majestic Landscapes.",
-    title: "Mountain Hikes",
-    img: "/mountainhikes.jpg",
+    text: "Welcome to Car Pool, your one-stop shop for quality car parts. We offer a wide range of affordable, reliable parts to keep your vehicle running smoothly. Trust Car Pool for all your car part needs and drive with confidence.",
+    title: "car-parts",
+    img: "/car-partts.jpg",
     variant1: fadeIn("left", "tween", 0.2, 1),
     variant2: fadeIn("right", "tween", 0.2, 1),
   },

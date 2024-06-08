@@ -1,6 +1,3 @@
-// Import necessary libraries
-
-
 "use client"
 import React, { useState, useEffect } from "react";
 import Datastore from "nedb";
@@ -19,6 +16,16 @@ const parts = [
   { id: 7, name: "car dustbin", image: "/part7.jpg" },
   { id: 8, name: "gear box cover", image: "/part8.jpg" },
 ];
+
+// Define the Header component
+const Header = () => (
+  <header className="bg-blue-800 text-white p-5 rounded-lg shadow-md mb-5">
+    <h1 className="text-4xl font-bold mb-3 text-center">Car Parts Purchase</h1>
+    <p className="text-lg">
+      Welcome to our car parts purchasing section. Please log in to add parts to your cart. You can browse through our collection of high-quality car parts and add them to your cart for purchase.
+    </p>
+  </header>
+);
 
 // Define the PurchaseSection component
 const PurchaseSection = () => {
@@ -68,29 +75,14 @@ const PurchaseSection = () => {
     setAddedParts({});
     alert("You have been logged out.");
   };
-  useEffect(() => {
-    // Load user data from the database when the component mounts
-    db.find({}, (error, docs) => {
-      if (error) {
-        console.error("Error retrieving user data:", error);
-      } else {
-        console.log("Retrieved user data:", docs);
-        if (docs.length > 0) {
-          const userData = docs[0]; // Assuming only one user for simplicity
-          setUsername(userData.username);
-          setEmail(userData.email);
-          setLoggedIn(true);
-        }
-      }
-    });
-  }, []);
-
 
   return (
     <div
       className="min-h-screen bg-cover bg-center flex flex-col items-center p-5"
       style={{ backgroundImage: "url('/purchaseback.png')" }}
     >
+      <Header />
+
       {/* Login Form */}
       <div className="flex justify-center items-center min-h-screen">
         <form
