@@ -1,6 +1,14 @@
-"use client"
-import React, { useState } from "react";
+// Import necessary libraries
 
+
+"use client"
+import React, { useState, useEffect } from "react";
+import Datastore from "nedb";
+
+// Initialize NeDB database
+const db = new Datastore({ filename: "./src/purchasing-detail/database.db", autoload: true, persistence: true });
+
+// Define the parts data
 const parts = [
   { id: 1, name: "Air filter", image: "/part1.jpg" },
   { id: 2, name: "black rubber gasket", image: "/part2.jpg" },
@@ -12,32 +20,71 @@ const parts = [
   { id: 8, name: "gear box cover", image: "/part8.jpg" },
 ];
 
+// Define the PurchaseSection component
 const PurchaseSection = () => {
+  // Define state variables
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [showAllParts, setShowAllParts] = useState(false);
   const [addedParts, setAddedParts] = useState({});
 
+  // Function to handle adding a part to the cart
   const handleAddToCart = (part) => {
     if (!loggedIn) {
       alert("Please log in first!");
     } else {
-      setAddedParts((prev) => ({ ...prev, [part.id]: true }));
-      alert(`${part.name} added to cart successfully!`);
+      // Save the username, email, and part information to the NeDB database
+      db.insert({ username, email, partId: part.id }, (error, doc) => {
+        if (error) {
+          console.error("Error saving data to NeDB:", error);
+        } else {
+          console.log("Data saved to NeDB:", doc);
+          setAddedParts((prev) => ({ ...prev, [part.id]: true }));
+          alert(`${part.name} added to cart successfully!`);
+        }
+      });
     }
   };
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoggedIn(true);
-    alert(`You are logged in ${username}. Welcome!`);
+    alert(`You are logged in as ${username}. Welcome!`);
   };
 
+  // Function to handle viewing more parts
   const handleViewMore = () => {
     setShowAllParts(true);
     alert("Please wait while we are loading...");
   };
+
+  // Function to handle logging out
+  const handleLogout = () => {
+    setUsername("");
+    setEmail("");
+    setLoggedIn(false);
+    setAddedParts({});
+    alert("You have been logged out.");
+  };
+  useEffect(() => {
+    // Load user data from the database when the component mounts
+    db.find({}, (error, docs) => {
+      if (error) {
+        console.error("Error retrieving user data:", error);
+      } else {
+        console.log("Retrieved user data:", docs);
+        if (docs.length > 0) {
+          const userData = docs[0]; // Assuming only one user for simplicity
+          setUsername(userData.username);
+          setEmail(userData.email);
+          setLoggedIn(true);
+        }
+      }
+    });
+  }, []);
+
 
   return (
     <div
@@ -51,7 +98,9 @@ const PurchaseSection = () => {
           className="bg-gray-100 bg-opacity-80 p-5 rounded-lg shadow-md mb-10 relative"
           style={{ width: "500px", height: "500px" }}
         >
-          <h2 className="text-2xl font-bold mb-5 text-center">{loggedIn ? "Logged In" : "Login"}</h2>
+          <h2 className="text-2xl font-bold mb-5 text-center">
+            {loggedIn ? "Logged In" : "Login"}
+          </h2>
           {!loggedIn && (
             <>
               <div className="mb-4">
@@ -74,7 +123,10 @@ const PurchaseSection = () => {
                   required
                 />
               </div>
-              <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-lg">
+              <button
+                type="submit"
+                className="w-full bg-blue-500 text-white p-2 rounded-lg"
+              >
                 Login
               </button>
             </>
@@ -88,6 +140,9 @@ const PurchaseSection = () => {
                 className="mt-4"
                 style={{ width: "200px", height: "200px" }}
               />
+              <button onClick={handleLogout} className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg">
+                Logout
+              </button>
             </div>
           )}
         </form>
@@ -106,7 +161,9 @@ const PurchaseSection = () => {
               <h3 className="font-bold text-lg">{part.name}</h3>
               <button
                 onClick={() => handleAddToCart(part)}
-                className={`mt-2 w-full ${addedParts[part.id] ? "bg-gray-500" : "bg-green-500"} text-white p-2 rounded-lg`}
+                className={`mt-2 w-full ${
+                  addedParts[part.id] ? "bg-gray-500" : "bg-green-500"
+                } text-white p-2 rounded-lg`}
                 disabled={addedParts[part.id]}
               >
                 {addedParts[part.id] ? "Added" : "Add to Cart"}
