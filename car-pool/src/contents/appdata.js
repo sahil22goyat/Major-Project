@@ -128,7 +128,7 @@ export const serviceList = [
     id: 2,
     text: "Elevate the anticipation of your upcoming special event with Car Pool. Whether it's a wedding, bachelor or bachelorette party, or milestone birthday celebration, infuse a touch of luxury with our immaculate fleet. Need ample space for a large group? Make a statement arrival, day or night, with our 15-seater Mahindra Xylo at your disposal. It's more than just transportation; it's a customized experience designed to ensure you and your guests arrive in style.",
     title: "Special Events Transportation",
-    img: "/weedevent.jpeg",
+    img: "/wedevent.webp",
     variant1: fadeIn("left", "tween", 0.2, 1),
     variant2: fadeIn("right", "tween", 0.2, 1),
   },
