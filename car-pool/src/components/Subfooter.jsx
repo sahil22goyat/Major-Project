@@ -43,9 +43,9 @@ const UniqueSubfooterComponent = () => {
             <p className="mb-4 text-base text-gray-500 border-l-4 border-third-color pl-4">
               Contact us at:
               <br />
-              Phone: 9466901628, 6005076996
+              Phone: +919466901628, +916005076996
               <br />
-              Email: sahilgoyatssn@gmail.com, sartajmir@gmail.com
+              Email: sahilgoyatssn@gmail.com, sartajhamid561@gmail.com
             </p>
           </div>
         </div>
