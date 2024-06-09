@@ -10,7 +10,7 @@ const Services = () => {
     <Banners
   img="/offerings.jpeg"
   title={<span className="text-white font-bold opacity-0.1">Services</span>}
-  text={<span className="text-white font-bold opacity-0.1">Experience elevated travel with Code scrapper: Where style, comfort, and safety meet for every occasion. Travel in sophistication and peace of mind.</span>}
+  text={<span className="text-white font-bold opacity-0.1">Experience elevated travel with Car pool: Where style, comfort, and safety meet for every occasion. Travel in sophistication and peace of mind.</span>}
 />
 
       <div className="mb-5">

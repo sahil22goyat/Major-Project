@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import Datastore from "nedb";
+import Footer from "@/components/Subfooter"; 
 
 // Initialize NeDB database
 const db = new Datastore({ filename: "./src/purchasing-detail/database.db", autoload: true, persistence: true });
@@ -166,7 +167,7 @@ const PurchaseSection = () => {
       </div>
 
       {/* View More Button */}
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-6 mb-16"> {/* Add margin-bottom */}
         <button
           onClick={handleViewMore}
           className="bg-blue-500 text-white p-3 rounded-lg shadow-md"
@@ -174,6 +175,8 @@ const PurchaseSection = () => {
           View More
         </button>
       </div>
+      
+      <Footer />
     </div>
   );
 };

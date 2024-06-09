@@ -54,7 +54,7 @@ const StepFour = ({ form }) => {
           <div className="flex justify-between items-center border-b mb-5 pb-5">
             <h3 className="text-3xl font-bold ">{title}</h3>
             <p className="text-lg font-bold">
-              Price: <span className="text-2xl text-third-color">${price}</span>
+              Price: <span className="text-2xl text-third-color">₹{price}</span>
             </p>
           </div>
           <h3 className="text-2xl font-bold mb-5">Order Information</h3>

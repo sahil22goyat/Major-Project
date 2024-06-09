@@ -6,7 +6,7 @@ import Purchase from "./Purchase/page";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "CAR POOL",
+  title: "Car Pool",
   description: "  Social Help",
 };
 

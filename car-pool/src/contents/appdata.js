@@ -12,7 +12,7 @@ export const links = [
     exact: true,
   },
   {
-    link: "/event-boooking",
+    link: "/event-booking",
     text: "Event-booking",
     exact: true,
   },
@@ -83,14 +83,14 @@ export const cardhold = [
     imgUrl: "/card2.jpg",
     title: "Versatile Rides: Tailored for Every Event",
     description:
-    "Embark on a Journey of Luxury and Comfort: Car Pool Awaits Your Reservation!",
+    "Embark on a Journey of Luxury ,Comfort: Car Pool Awaits Your Reservation!",
   },
   {
     id: "cardhold3",
     imgUrl: "/card3.jpg",
     title: "Weeding specialists",
     description:
-      "On Your Special Day, Car Pool Creates Unforgettable Memories with Every Ride, Setting the Standard for Elegance and Luxury.",
+      "On Your Special Day, Car Pool Creates Unforgettable Memories with Every Ride, Setting the Standard for Elegance and Luxury ",
   },
 ];
 
@@ -102,7 +102,7 @@ export const vgcar = [
       "Transforming transportation with real-time vehicle tracking for peak efficiency and minimal downtime.",
   },
   {
-    img: "/vgcar2.jpg",
+    img: "/vgcar2.jpeg",
     title: "Pathway to Progress",
     description:
       "Empowering progress through innovative solutions and cutting-edge technology, our mission is to drive efficiency, enhance experiences, and create lasting value for our stakeholders.",

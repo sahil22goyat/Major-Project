@@ -36,6 +36,25 @@ const CustomComponent = () => {
             className="px-0 lg:px-4 xl:px-14 w-full h-auto object-cover rounded-3xl"
             alt=""
           />
+          <div>
+            <p className="mt-2.5 sm:mt-5 font-normal text-white sm:text-lg text-md leading-6 text-slate-400 text-center">
+          <span> phone: +919466901628, +916005076996,</span> 
+            Email: sahilgoyatssn@gmail.com, sartajhamid561@gmail.com,
+            Address:gjus&t hisar , haryana , india ,
+            </p>
+            <div className="p-4 bg-gray-100 text-gray-700 rounded-lg shadow-md mb-5">
+    <h2 className="text-2xl font-bold mb-3">Disclaimer</h2>
+    <p>
+      This website is a college project designed to facilitate carpooling and car rental services. While we strive to provide accurate information, the website is not a commercial service and may have limitations in functionality and content accuracy.
+    </p>
+    <p className="mt-2">
+      Users of this website are responsible for verifying the information provided and for their own safety. We do not accept any liability for damages or losses arising from the use of this service. Users should take necessary precautions, including verifying driver details and following local laws and regulations.
+    </p>
+    <p className="mt-2">
+      By using this website, you acknowledge that it is a project and accept these terms. For any concerns or feedback, please contact us at [+916005076996].
+    </p>
+  </div>
+          </div>
         </motion.div>
       </motion.div>
     </section>
