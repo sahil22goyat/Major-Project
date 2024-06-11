@@ -1,26 +1,27 @@
-"use client"
-import React, { useState, useEffect } from "react";
-import Datastore from "nedb";
-import Footer from "@/components/Subfooter";
-import CartTable from "@/components/cartTable"; // Import CartTable component
+"use client";
+import React, { useState, useEffect } from 'react';
+import Datastore from 'nedb';
+import Footer from '@/components/Subfooter';
+import CartTable from '@/components/CartTable'; // Import CartTable component
+import Notification from '@/components/Notification'; // Adjust the path as per your project structure
 
 // Initialize NeDB database
 const db = new Datastore({
-  filename: "./src/purchasing-detail/database.db",
+  filename: './src/purchasing-detail/database.db',
   autoload: true,
   persistence: true,
 });
 
 // Define the parts data
 const parts = [
-  { id: 1, name: "Air filter ₹120", price: 120, image: "/part1.jpg" },
-  { id: 2, name: "black rubber gasket ₹70", price: 70, image: "/part2.jpg" },
-  { id: 3, name: "catalytic converter ₹600", price: 600, image: "/part3.jpg" },
-  { id: 4, name: "headlights ₹250", price: 250, image: "/part4.jpg" },
-  { id: 5, name: "bonet ₹350", price: 350, image: "/part5.jpg" },
-  { id: 6, name: "engine cover ₹180", price: 180, image: "/part6.jpg" },
-  { id: 7, name: "car dustbin ₹25", price: 25, image: "/part7.jpg" },
-  { id: 8, name: "gear box cover ₹280", price: 280, image: "/part8.jpg" },
+  { id: 1, name: 'Air filter ₹120', price: 120, image: '/part1.jpg' },
+  { id: 2, name: 'black rubber gasket ₹70', price: 70, image: '/part2.jpg' },
+  { id: 3, name: 'catalytic converter ₹600', price: 600, image: '/part3.jpg' },
+  { id: 4, name: 'headlights ₹250', price: 250, image: '/part4.jpg' },
+  { id: 5, name: 'bonet ₹350', price: 350, image: '/part5.jpg' },
+  { id: 6, name: 'engine cover ₹180', price: 180, image: '/part6.jpg' },
+  { id: 7, name: 'car dustbin ₹25', price: 25, image: '/part7.jpg' },
+  { id: 8, name: 'gear box cover ₹280', price: 280, image: '/part8.jpg' },
 ];
 
 // Define the Header component
@@ -38,13 +39,14 @@ const Header = () => (
 // Define the PurchaseSection component
 const PurchaseSection = () => {
   // Define state variables
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
   const [showAllParts, setShowAllParts] = useState(false);
   const [addedParts, setAddedParts] = useState({});
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [notificationMessage, setNotificationMessage] = useState('');
 
   // Load cart items from NeDB on component mount
   useEffect(() => {
@@ -56,7 +58,7 @@ const PurchaseSection = () => {
     if (loggedIn) {
       db.find({ username }, (error, docs) => {
         if (error) {
-          console.error("Error loading cart items:", error);
+          console.error('Error loading cart items:', error);
         } else {
           const partsInCart = docs.map((doc) => doc.partId);
           const cartItemsData = parts.filter((part) =>
@@ -78,17 +80,22 @@ const PurchaseSection = () => {
   // Function to handle adding a part to the cart
   const handleAddToCart = (part) => {
     if (!loggedIn) {
-      alert("Please log in first!");
+      setNotificationMessage('Please log in first!');
     } else {
       // Save the username, email, and part information to the NeDB database
       db.insert({ username, email, partId: part.id }, (error, doc) => {
         if (error) {
-          console.error("Error saving data to NeDB:", error);
+          console.error('Error saving data to NeDB:', error);
         } else {
-          console.log("Data saved to NeDB:", doc);
+          console.log('Data saved to NeDB:', doc);
           setAddedParts((prev) => ({ ...prev, [part.id]: true }));
-          alert(`${part.name} added to cart successfully!`);
+          setNotificationMessage(`${part.name} added to cart successfully!`);
           loadCartItems(); // Reload cart items after adding
+
+          // Display notification for added to cart
+          setTimeout(() => {
+            setNotificationMessage('');
+          }, 2000);
         }
       });
     }
@@ -98,25 +105,34 @@ const PurchaseSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoggedIn(true);
-    alert(`You are logged in as ${username}. Welcome!`);
+    setNotificationMessage(`You are logged in as ${username}. Welcome!`);
     loadCartItems(); // Load cart items after login
+
+    // Display notification for login
+    setTimeout(() => {
+      setNotificationMessage('');
+    }, 2000);
   };
 
   // Function to handle viewing more parts
   const handleViewMore = () => {
     setShowAllParts(true);
-    alert("Please wait while we are loading...");
   };
 
   // Function to handle logging out
   const handleLogout = () => {
-    setUsername("");
-    setEmail("");
+    setUsername('');
+    setEmail('');
     setLoggedIn(false);
     setAddedParts({});
     setCartItems([]);
     setTotalPrice(0);
-    alert("You have been logged out.");
+    setNotificationMessage('You have been logged out.');
+
+    // Display notification for logout
+    setTimeout(() => {
+      setNotificationMessage('');
+    }, 2000);
   };
 
   return (
@@ -126,15 +142,20 @@ const PurchaseSection = () => {
     >
       <Header />
 
+      {/* Notification */}
+      {notificationMessage && (
+        <Notification message={notificationMessage} duration={2000} />
+      )}
+
       <div className="flex justify-center items-center min-h-screen">
         {/* Login Form */}
         <form
           onSubmit={handleSubmit}
           className="bg-gray-100 bg-opacity-80 p-5 rounded-lg shadow-md relative"
-          style={{ width: "500px", height: "450px" }}
+          style={{ width: '500px', height: '450px' }}
         >
           <h2 className="text-2xl font-bold mb-5 text-center">
-            {loggedIn ? "Logged In" : "Login"}
+            {loggedIn ? 'Logged In' : 'Login'}
           </h2>
           {!loggedIn && (
             <>
@@ -173,7 +194,7 @@ const PurchaseSection = () => {
                 src="https://t4.ftcdn.net/jpg/01/36/70/67/240_F_136706734_KWhNBhLvY5XTlZVocpxFQK1FfKNOYbMj.jpg"
                 alt="Smile"
                 className="mt-4"
-                style={{ width: "200px", height: "200px" }}
+                style={{ width: '200px', height: '200px' }}
               />
               <button
                 onClick={handleLogout}
@@ -200,7 +221,7 @@ const PurchaseSection = () => {
               src="cartpartstopurchase.jpeg"
               alt="Parts to Purchase"
               className="mt-4"
-              style={{ width: "550px", height: "380px" }}
+              style={{ width: '550px', height: '380px' }}
             />
           </div>
         </div>
@@ -220,12 +241,12 @@ const PurchaseSection = () => {
               <button
                 onClick={() => handleAddToCart(part)}
                 className={`mt-2 w-full ${
-                  addedParts[part.id] ? "bg-gray-500" : "bg-green-500"
+                  addedParts[part.id] ? 'bg-gray-500' : 'bg-green-500'
                 } text-white p-2 rounded-lg`}
                 disabled={addedParts[part.id]}
               >
-                {addedParts[part.id] ? "Added" : "Add to Cart"}
-                </button>
+                {addedParts[part.id] ? 'Added' : 'Add to Cart'}
+              </button>
             </div>
           </div>
         ))}
