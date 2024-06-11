@@ -1,10 +1,14 @@
-"use client"
-import React, { useState, useEffect } from "react";
+"use client";
+import React, { useState } from "react";
 import Datastore from "nedb";
-import Footer from "@/components/Subfooter"; 
+import Footer from "@/components/Subfooter";
 
 // Initialize NeDB database
-const db = new Datastore({ filename: "./src/purchasing-detail/database.db", autoload: true, persistence: true });
+const db = new Datastore({
+  filename: "./src/purchasing-detail/database.db",
+  autoload: true,
+  persistence: true,
+});
 
 // Define the parts data
 const parts = [
@@ -20,10 +24,12 @@ const parts = [
 
 // Define the Header component
 const Header = () => (
-  <header className="bg-blue-800 text-white p-5 rounded-lg shadow-md mb-5">
+  <header className="bg-g-800 text-white p-5 rounded-lg shadow-md mb-5 transform hover:scale-105 transition-transform duration-300">
     <h1 className="text-4xl font-bold mb-3 text-center">Car Parts Purchase</h1>
     <p className="text-lg">
-      Welcome to our car parts purchasing section. Please log in to add parts to your cart. You can browse through our collection of high-quality car parts and add them to your cart for purchase.
+      Welcome to our car parts purchasing section. Please log in to add parts to
+      your cart. You can browse through our collection of high-quality car parts
+      and add them to your cart for purchase.
     </p>
   </header>
 );
@@ -84,12 +90,12 @@ const PurchaseSection = () => {
     >
       <Header />
 
-      {/* Login Form */}
       <div className="flex justify-center items-center min-h-screen">
+        {/* Login Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-gray-100 bg-opacity-80 p-5 rounded-lg shadow-md mb-10 relative"
-          style={{ width: "500px", height: "500px" }}
+          className="bg-gray-100 bg-opacity-80 p-5 rounded-lg shadow-md relative"
+          style={{ width: "500px", height: "450px" }}
         >
           <h2 className="text-2xl font-bold mb-5 text-center">
             {loggedIn ? "Logged In" : "Login"}
@@ -133,12 +139,31 @@ const PurchaseSection = () => {
                 className="mt-4"
                 style={{ width: "200px", height: "200px" }}
               />
-              <button onClick={handleLogout} className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg">
+              <button
+                onClick={handleLogout}
+                className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg"
+              >
                 Logout
               </button>
             </div>
           )}
         </form>
+
+        {/* Hurray Section */}
+        <div  style={{ marginLeft: "50px", marginTop: "-10px" }}  className="bg-g-800 text-white p-5 rounded-lg shadow-md ml-10 mt-10 transform hover:scale-105 transition-transform duration-300">
+          <h2 className="text-4xl font-bold mb-3 text-center">
+            Hurray! Buy the parts you need!
+          </h2>
+          <div className="flex justify-center items-center flex-col">
+           
+            <img
+              src="cartpartstopurchase.jpeg"
+              alt="Parts to Purchase"
+              className="mt-4"
+              style={{ width: "550px", height: "380px" }}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Parts for Purchase */}
@@ -167,7 +192,7 @@ const PurchaseSection = () => {
       </div>
 
       {/* View More Button */}
-      <div className="flex justify-center mt-6 mb-16"> {/* Add margin-bottom */}
+      <div className="flex justify-center mt-6 mb-16">
         <button
           onClick={handleViewMore}
           className="bg-blue-500 text-white p-3 rounded-lg shadow-md"
@@ -175,7 +200,7 @@ const PurchaseSection = () => {
           View More
         </button>
       </div>
-      
+
       <Footer />
     </div>
   );
