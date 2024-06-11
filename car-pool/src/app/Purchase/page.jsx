@@ -1,7 +1,8 @@
-"use client";
-import React, { useState } from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import Datastore from "nedb";
 import Footer from "@/components/Subfooter";
+import CartTable from "@/components/cartTable"; // Import CartTable component
 
 // Initialize NeDB database
 const db = new Datastore({
@@ -12,14 +13,14 @@ const db = new Datastore({
 
 // Define the parts data
 const parts = [
-  { id: 1, name: "Air filter", image: "/part1.jpg" },
-  { id: 2, name: "black rubber gasket", image: "/part2.jpg" },
-  { id: 3, name: "catalytic converter", image: "/part3.jpg" },
-  { id: 4, name: "headlights", image: "/part4.jpg" },
-  { id: 5, name: "bonet", image: "/part5.jpg" },
-  { id: 6, name: "engine cover", image: "/part6.jpg" },
-  { id: 7, name: "car dustbin", image: "/part7.jpg" },
-  { id: 8, name: "gear box cover", image: "/part8.jpg" },
+  { id: 1, name: "Air filter ₹120", price: 120, image: "/part1.jpg" },
+  { id: 2, name: "black rubber gasket ₹70", price: 70, image: "/part2.jpg" },
+  { id: 3, name: "catalytic converter ₹600", price: 600, image: "/part3.jpg" },
+  { id: 4, name: "headlights ₹250", price: 250, image: "/part4.jpg" },
+  { id: 5, name: "bonet ₹350", price: 350, image: "/part5.jpg" },
+  { id: 6, name: "engine cover ₹180", price: 180, image: "/part6.jpg" },
+  { id: 7, name: "car dustbin ₹25", price: 25, image: "/part7.jpg" },
+  { id: 8, name: "gear box cover ₹280", price: 280, image: "/part8.jpg" },
 ];
 
 // Define the Header component
@@ -42,6 +43,37 @@ const PurchaseSection = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [showAllParts, setShowAllParts] = useState(false);
   const [addedParts, setAddedParts] = useState({});
+  const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  // Load cart items from NeDB on component mount
+  useEffect(() => {
+    loadCartItems();
+  }, []);
+
+  // Function to load cart items from NeDB
+  const loadCartItems = () => {
+    if (loggedIn) {
+      db.find({ username }, (error, docs) => {
+        if (error) {
+          console.error("Error loading cart items:", error);
+        } else {
+          const partsInCart = docs.map((doc) => doc.partId);
+          const cartItemsData = parts.filter((part) =>
+            partsInCart.includes(part.id)
+          );
+          setCartItems(cartItemsData);
+          calculateTotalPrice(cartItemsData);
+        }
+      });
+    }
+  };
+
+  // Function to calculate total price of items in cart
+  const calculateTotalPrice = (items) => {
+    const total = items.reduce((acc, item) => acc + item.price, 0);
+    setTotalPrice(total);
+  };
 
   // Function to handle adding a part to the cart
   const handleAddToCart = (part) => {
@@ -56,6 +88,7 @@ const PurchaseSection = () => {
           console.log("Data saved to NeDB:", doc);
           setAddedParts((prev) => ({ ...prev, [part.id]: true }));
           alert(`${part.name} added to cart successfully!`);
+          loadCartItems(); // Reload cart items after adding
         }
       });
     }
@@ -66,6 +99,7 @@ const PurchaseSection = () => {
     e.preventDefault();
     setLoggedIn(true);
     alert(`You are logged in as ${username}. Welcome!`);
+    loadCartItems(); // Load cart items after login
   };
 
   // Function to handle viewing more parts
@@ -80,6 +114,8 @@ const PurchaseSection = () => {
     setEmail("");
     setLoggedIn(false);
     setAddedParts({});
+    setCartItems([]);
+    setTotalPrice(0);
     alert("You have been logged out.");
   };
 
@@ -149,13 +185,17 @@ const PurchaseSection = () => {
           )}
         </form>
 
+        {/* Cart Table */}
+        {loggedIn && cartItems.length > 0 && (
+          <CartTable cartItems={cartItems} totalPrice={totalPrice} />
+        )}
+
         {/* Hurray Section */}
-        <div  style={{ marginLeft: "50px", marginTop: "-10px" }}  className="bg-g-800 text-white p-5 rounded-lg shadow-md ml-10 mt-10 transform hover:scale-105 transition-transform duration-300">
+        <div className="bg-g-800 text-white p-5 rounded-lg shadow-md ml-10 mt-10 transform hover:scale-105 transition-transform duration-300">
           <h2 className="text-4xl font-bold mb-3 text-center">
             Hurray! Buy the parts you need!
           </h2>
           <div className="flex justify-center items-center flex-col">
-           
             <img
               src="cartpartstopurchase.jpeg"
               alt="Parts to Purchase"
@@ -185,22 +225,23 @@ const PurchaseSection = () => {
                 disabled={addedParts[part.id]}
               >
                 {addedParts[part.id] ? "Added" : "Add to Cart"}
-              </button>
+                </button>
             </div>
           </div>
         ))}
       </div>
 
       {/* View More Button */}
-      <div className="flex justify-center mt-6 mb-16">
+      {!showAllParts && (
         <button
           onClick={handleViewMore}
-          className="bg-blue-500 text-white p-3 rounded-lg shadow-md"
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-5"
         >
-          View More
+          View More Parts
         </button>
-      </div>
+      )}
 
+      {/* Footer */}
       <Footer />
     </div>
   );

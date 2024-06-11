@@ -140,7 +140,7 @@ export const serviceList = [
     variant1: fadeIn("right", "tween", 0.2, 1),
     variant2: fadeIn("left", "tween", 0.2, 1),
   },
-  {
+  {            
     id: 4,
     text: "Embark on Unforgettable Family Adventures with Carpool ,From spontaneous picnics to elaborate family outings, let Carpool enhance your family travel experience. Traveling with little ones? We'll ensure all necessary arrangements, including child seats, are taken care of prior to your arrival. Carpool provides a safe, reliable, and luxurious solution for all your family transportation needs. When planning your next outdoor excursion, be sure to book a ride with Carpool for a seamless and comfortable start to your journey.",
     title: "Family Fun Outings",
