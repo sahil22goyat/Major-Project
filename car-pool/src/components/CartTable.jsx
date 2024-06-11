@@ -1,6 +1,6 @@
 import React from "react";
 
-const CartTable = ({ cartItems, totalPrice }) => {
+const CartTable = ({ cartItems, totalPrice, handleRemoveFromCart }) => {
   return (
     <div className="bg-white p-5 rounded-lg shadow-md ml-10 mt-10 transform hover:scale-105 transition-transform duration-300">
       <h2 className="text-4xl font-bold mb-3 text-center">Your Cart</h2>
@@ -12,6 +12,9 @@ const CartTable = ({ cartItems, totalPrice }) => {
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Price
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Action
             </th>
           </tr>
         </thead>
@@ -37,6 +40,14 @@ const CartTable = ({ cartItems, totalPrice }) => {
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 ₹{item.price}
               </td>
+              <td className="px-6 py-4 whitespace-nowrap">
+                <button
+                  onClick={() => handleRemoveFromCart(item.id)}
+                  className="bg-red-500 text-white p-2 rounded-lg"
+                >
+                  Remove
+                </button>
+              </td>
             </tr>
           ))}
           <tr>
@@ -46,6 +57,7 @@ const CartTable = ({ cartItems, totalPrice }) => {
             <td className="px-6 py-4 whitespace-nowrap text-lg font-semibold text-gray-900">
               ₹{totalPrice}
             </td>
+            <td></td>
           </tr>
         </tbody>
       </table>

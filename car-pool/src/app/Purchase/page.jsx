@@ -101,6 +101,29 @@ const PurchaseSection = () => {
     }
   };
 
+  // Function to handle removing a part from the cart
+  const handleRemoveFromCart = (partId) => {
+    db.remove({ username, partId }, {}, (error, numRemoved) => {
+      if (error) {
+        console.error('Error removing data from NeDB:', error);
+      } else {
+        console.log('Data removed from NeDB:', numRemoved);
+        setAddedParts((prev) => {
+          const updated = { ...prev };
+          delete updated[partId];
+          return updated;
+        });
+        setNotificationMessage('Part removed from cart.');
+        loadCartItems(); // Reload cart items after removing
+
+        // Display notification for removed from cart
+        setTimeout(() => {
+          setNotificationMessage('');
+        }, 2000);
+      }
+    });
+  };
+
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -208,7 +231,11 @@ const PurchaseSection = () => {
 
         {/* Cart Table */}
         {loggedIn && cartItems.length > 0 && (
-          <CartTable cartItems={cartItems} totalPrice={totalPrice} />
+          <CartTable
+            cartItems={cartItems}
+            totalPrice={totalPrice}
+            handleRemoveFromCart={handleRemoveFromCart} // Pass the remove handler
+          />
         )}
 
         {/* Hurray Section */}
@@ -253,14 +280,20 @@ const PurchaseSection = () => {
       </div>
 
       {/* View More Button */}
-      {!showAllParts && (
-        <button
-          onClick={handleViewMore}
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-5"
-        >
-          View More Parts
-        </button>
-      )}
+{!showAllParts && (
+  <button
+    onClick={handleViewMore}
+    className="bg-green-500 text-white px-4 py-2 rounded-lg mt-5"
+    style={{ marginBottom: '20px' }} // Added inline style for bottom margin
+  >
+    View More 
+  </button>
+)}
+
+
+    {/* Space after all pictures */}
+    <div style={{ marginBottom: '50px' }}></div>
+
 
       {/* Footer */}
       <Footer />
