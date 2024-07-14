@@ -29,7 +29,7 @@ export const POST = async (req) => {
     // });
     const transformedItem = {
       price_data: {
-        currency: "usd",
+        currency: "ruppee",
         product_data: {
           images: [body.imgUrl],
           name: item.title,
