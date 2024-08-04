@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import { links } from "@/contents/appdata";
@@ -6,51 +6,34 @@ import { usePathname } from "next/navigation";
 
 const Header = () => {
   const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const [isMenu, setIsMenu] = useState(false);
 
   return (
-    <div className="bg-gray-900 bg-opacity-80 shadow-lg">
-      <div className="container mx-auto px-4 md:px-[10%]">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-white font-bold text-2xl">
-            🚘Car🤝Pool🚗
-          </Link>
-          <div
-            className="md:hidden flex flex-col gap-1 cursor-pointer"
-            onClick={toggleMenu}
-          >
-            <div className="w-5 h-0.5 bg-white"></div>
-            <div className="w-5 h-0.5 bg-white"></div>
-            <div className="w-5 h-0.5 bg-white"></div>
-          </div>
-        </div>
+    <div className="bg-gray-900 bg-opacity-80 shadow-lg h-16 flex justify-between items-center md:px-[10%]">
+      <Link href="/" className="text-white font-bold text-2xl pl-5 md:pl-0">
+      🚘Car🤝Pool🚗
+      </Link>
+      <div className="md:hidden flex flex-col gap-1 pr-5" onClick={() => setIsMenu(!isMenu)}>
+        <div className="w-5 h-0.5 bg-black"></div>
+        <div className="w-5 h-0.5 bg-black"></div>
+        <div className="w-5 h-0.5 bg-black"></div>
       </div>
-      <div
-        className={`${
-          isMenuOpen
-            ? "block md:hidden"
-            : "hidden md:block"
-        }`}
+      <div className={`${
+          isMenu ? "flex flex-col absolute top-16 w-full" : "hidden md:flex"
+        } gap-5 md:flex-row md:static bg-transparent md:w-auto text-center`}
       >
-        <div className="container mx-auto px-4">
-          <div className="bg-gray-900 bg-opacity-80 text-center py-2">
-            {links?.map((link) => (
-              <div key={link.link}>
-                <Link
-                  className={`block text-white hover:bg-gray-800 px-3 py-2`}
-                  href={link.link}
-                  exact={link.exact}
-                >
-                  <span>{link.text}</span>
-                </Link>
-              </div>
-            ))}
+        {links?.map((link) => (
+          <div key={link.link}>
+            <Link className={`text-white bg-transparent ${
+              pathname === link.link ? "font-bold" : ""
+            }`} 
+              href={link.link}
+              exact={link.exact}
+            >
+              <span>{link.text}</span>
+            </Link>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
